@@ -15,7 +15,7 @@ class FavoritesPage extends StatelessWidget {
 
     return Column(
       children: [
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Align(
           child: Text(
             'You have '
