@@ -20,7 +20,7 @@ class FavoritesPage extends StatelessWidget {
           child: Text(
             'You have '
             '${favorites.length} favorites',
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
           ),
         ),
 
