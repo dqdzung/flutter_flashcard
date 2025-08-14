@@ -33,7 +33,7 @@ class FavoritesPage extends StatelessWidget {
               for (var word in favorites)
                 ListTile(
                   leading: TextButton(
-                    child: Text(word, style: TextStyle(fontSize: 16)),
+                    child: Text(word, style: const TextStyle(fontSize: 16)),
                     onPressed: () {
                       showDefinitionModal(context, word);
                     },
