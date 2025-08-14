@@ -1,1 +1,5 @@
-Demo at https://dqdzung.github.io/flutter_flashcard_web
+# flutter_flashcard
+
+A Flutter project. [Web demo](https://dqdzung.github.io/flutter_flashcard_web)
+
+
