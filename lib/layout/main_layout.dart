@@ -32,16 +32,23 @@ class _MainLayoutState extends State<MainLayout> {
               SizedBox(height: 75),
               SegmentedButton(
                 showSelectedIcon: false,
+                style: ButtonStyle(
+                  iconColor: WidgetStateProperty.resolveWith<Color?>((states) {
+                    return states.contains(WidgetState.selected)
+                        ? Colors.purple
+                        : null;
+                  }),
+                ),
                 segments: [
                   ButtonSegment(
                     value: "home",
                     tooltip: "Home",
-                    icon: Icon(Icons.home),
+                    icon: const Icon(Icons.home),
                   ),
                   ButtonSegment(
                     value: "fav",
                     tooltip: "Favorite",
-                    icon: Icon(Icons.favorite),
+                    icon: const Icon(Icons.favorite),
                   ),
                 ],
                 selected: selected,

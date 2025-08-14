@@ -39,7 +39,16 @@ class FavoritesPage extends StatelessWidget {
                     },
                   ),
                   trailing: IconButton(
-                    icon: Icon(Icons.delete_forever),
+                    style: ButtonStyle(
+                      foregroundColor: WidgetStateProperty.resolveWith<Color?>((
+                        states,
+                      ) {
+                        return states.contains(WidgetState.hovered)
+                            ? Colors.red
+                            : null;
+                      }),
+                    ),
+                    icon: const Icon(Icons.delete_forever),
                     onPressed: () {
                       appState.removeFavorite(word);
                     },
@@ -50,39 +59,5 @@ class FavoritesPage extends StatelessWidget {
         ),
       ],
     );
-
-    // return ListView(
-    //   padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-    //   children: [
-    //     SizedBox(height: 15),
-    //     Align(
-    //       alignment: Alignment.center,
-    //       // padding: const EdgeInsets.all(20),
-    //       child: Text(
-    //         'You have '
-    //         '${favorites.length} favorites',
-    //         style: TextStyle(fontSize: 18),
-    //       ),
-    //     ),
-
-    //     SizedBox(height: 10),
-
-    //     for (var word in favorites)
-    //       ListTile(
-    //         leading: TextButton(
-    //           child: Text(word, style: TextStyle(fontSize: 16)),
-    //           onPressed: () {
-    //             showDefinitionModal(context, word);
-    //           },
-    //         ),
-    //         trailing: IconButton(
-    //           icon: Icon(Icons.delete_forever),
-    //           onPressed: () {
-    //             appState.removeFavorite(word);
-    //           },
-    //         ),
-    //       ),
-    //   ],
-    // );
   }
 }
