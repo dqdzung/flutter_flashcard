@@ -24,7 +24,7 @@ class FavoritesPage extends StatelessWidget {
           ),
         ),
 
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
 
         Flexible(
           child: ListView(
