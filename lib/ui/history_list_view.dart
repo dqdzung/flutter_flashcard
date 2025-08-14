@@ -25,7 +25,6 @@ class _HistoryListViewState extends State<HistoryListView> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final appState = context.watch<AppState>();
     appState.historyListKey = _key;
 
@@ -37,7 +36,7 @@ class _HistoryListViewState extends State<HistoryListView> {
       child: AnimatedList(
         key: _key,
         reverse: true,
-        padding: EdgeInsets.only(top: 50),
+        padding: const EdgeInsets.only(top: 50),
         initialItemCount: appState.history.length,
         itemBuilder: (context, index, animation) {
           final word = appState.history[index];
@@ -49,12 +48,12 @@ class _HistoryListViewState extends State<HistoryListView> {
                   appState.toggleFavorite(word);
                 },
                 icon: appState.favorites.contains(word)
-                    ? Icon(Icons.favorite, size: 14, color: Colors.red)
-                    : SizedBox(),
+                    ? const Icon(Icons.favorite, size: 14, color: Colors.red)
+                    : const SizedBox(),
                 label: Text(
                   word,
                   semanticsLabel: word,
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
               ),
             ),

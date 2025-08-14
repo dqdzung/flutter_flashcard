@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/model/word_definition.dart';
 import 'package:flutter_tutorial/service/fetch_definition.dart';
+import 'package:flutter_tutorial/ui/card_back.dart';
 
 void showDefinitionModal(BuildContext context, String word) {
   showDialog(
@@ -64,7 +65,7 @@ class _DefinitionModalState extends State<DefinitionModal> {
 
                 // success and data not null, show data
               } else if (snapshot.hasData && snapshot.data != null) {
-                child = _buildDefinitionContent(context, snapshot.data!);
+                child = DefinitionContent(definition: snapshot.data!);
               } else {
                 // no data, show text
                 child = const Center(
@@ -88,28 +89,6 @@ class _DefinitionModalState extends State<DefinitionModal> {
           child: const Text('Close'),
         ),
       ],
-    );
-  }
-
-  Widget _buildDefinitionContent(
-    BuildContext context,
-    WordDefinition definition,
-  ) {
-    final theme = Theme.of(context);
-    final style = theme.textTheme.bodyLarge;
-    final italicStyle = style?.copyWith(fontStyle: FontStyle.italic);
-
-    return SingleChildScrollView(
-      key: ValueKey(definition.word),
-      child: ListBody(
-        children: <Widget>[
-          if (definition.partOfSpeech != null) ...[
-            Text("(${definition.partOfSpeech!})", style: italicStyle),
-            const SizedBox(height: 8),
-          ],
-          Text(definition.definition, style: style),
-        ],
-      ),
     );
   }
 }

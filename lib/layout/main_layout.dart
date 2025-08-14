@@ -29,7 +29,7 @@ class _MainLayoutState extends State<MainLayout> {
           backgroundColor: Colors.purple[100],
           body: Column(
             children: [
-              SizedBox(height: 75),
+              const SizedBox(height: 75),
               SegmentedButton(
                 showSelectedIcon: false,
                 style: ButtonStyle(
@@ -40,15 +40,15 @@ class _MainLayoutState extends State<MainLayout> {
                   }),
                 ),
                 segments: [
-                  ButtonSegment(
+                  const ButtonSegment(
                     value: "home",
                     tooltip: "Home",
-                    icon: const Icon(Icons.home),
+                    icon: Icon(Icons.home),
                   ),
-                  ButtonSegment(
+                  const ButtonSegment(
                     value: "fav",
                     tooltip: "Favorite",
-                    icon: const Icon(Icons.favorite),
+                    icon: Icon(Icons.favorite),
                   ),
                 ],
                 selected: selected,
@@ -61,7 +61,7 @@ class _MainLayoutState extends State<MainLayout> {
 
               Expanded(
                 child: AnimatedSwitcher(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   child: page,
                 ),
               ),

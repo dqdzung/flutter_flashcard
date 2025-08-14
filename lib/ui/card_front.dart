@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BigCard extends StatelessWidget {
-  const BigCard({super.key, required this.word});
+class CardFront extends StatelessWidget {
+  const CardFront({super.key, required this.word});
   final String word;
 
   @override

@@ -7,11 +7,11 @@ import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final appState = context.watch<AppState>();
     final theme = Theme.of(context);
-    var current = appState.currentWord;
-    var count = appState.count;
-    var isLoading = appState.isLoading;
+    final appState = context.watch<AppState>();
+    final current = appState.currentWord;
+    final count = appState.count;
+    final isLoading = appState.isLoading;
 
     IconData icon;
     if (appState.favorites.contains(current)) {
@@ -24,13 +24,12 @@ class HomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(flex: 1, child: HistoryListView()),
-          SizedBox(height: 10),
-          DefinitionFlipCard(),
-          SizedBox(height: 15),
+          const Expanded(flex: 1, child: HistoryListView()),
+          const SizedBox(height: 10),
+          const DefinitionFlipCard(),
+          const SizedBox(height: 15),
           Text('Score: $count', style: theme.textTheme.headlineLarge),
-          SizedBox(height: 15),
-
+          const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -43,7 +42,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(color: theme.primaryColor, fontSize: 16),
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               ElevatedButton(
                 onPressed: () {
                   appState.increase();
@@ -55,8 +54,7 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 15),
-
+          const SizedBox(height: 15),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -70,7 +68,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(color: theme.primaryColor, fontSize: 16),
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               ElevatedButton.icon(
                 // Disable the button when isLoading is true.
                 onPressed: isLoading
@@ -96,7 +94,7 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-          Spacer(flex: 1),
+          const Spacer(flex: 1),
         ],
       ),
     );
