@@ -1,10 +1,5 @@
 # flutter_flashcard
 
-A Flutter project.
+A Flutter project. [Web demo](https://dqdzung.github.io/flutter_flashcard_web)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-[Web demo](https://dqdzung.github.io/flutter_flashcard_web)
 
