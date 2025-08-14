@@ -28,7 +28,7 @@ class FavoritesPage extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 15, 15),
             children: [
-              for (var word in favorites)
+              for (var word in favorites.reversed)
                 ListTile(
                   key: ValueKey(word),
                   leading: TextButton(

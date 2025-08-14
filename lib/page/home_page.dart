@@ -30,29 +30,17 @@ class HomePage extends StatelessWidget {
           const DefinitionFlipCard(),
           const SizedBox(height: 15),
           Text('Score: $count', style: theme.textTheme.headlineLarge),
-          const SizedBox(height: 15),
+          const SizedBox(height: 25),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: () {
-                  appState.decrease();
-                },
-                child: Text('-1', style: buttonStyle),
-              ),
-              const SizedBox(width: 10),
               ElevatedButton(
                 onPressed: () {
                   appState.increase();
                 },
                 child: Text('+1', style: buttonStyle),
               ),
-            ],
-          ),
-          const SizedBox(height: 15),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
+              const SizedBox(width: 10),
               ElevatedButton.icon(
                 onPressed: () {
                   appState.toggleFavorite();
@@ -60,29 +48,32 @@ class HomePage extends StatelessWidget {
                 icon: Icon(icon),
                 label: Text('Like', style: buttonStyle),
               ),
-              const SizedBox(width: 10),
-              ElevatedButton.icon(
-                // Disable the button when isLoading is true.
-                onPressed: isLoading
-                    ? null
-                    : () {
-                        appState.getNext();
-                      },
-                label: Text('Next word', style: buttonStyle),
-                icon: isLoading
-                    ? Container(
-                        width: 15,
-                        height: 15,
-                        padding: const EdgeInsets.all(2),
-                        child: const CircularProgressIndicator(
-                          color: Colors.white,
-                          strokeWidth: 3,
-                        ),
-                      )
-                    : null,
-              ),
             ],
           ),
+
+          const SizedBox(height: 15),
+
+          ElevatedButton.icon(
+            // Disable the button when isLoading is true.
+            onPressed: isLoading
+                ? null
+                : () {
+                    appState.getNext();
+                  },
+            label: Text('Next word', style: buttonStyle),
+            icon: isLoading
+                ? Container(
+                    width: 15,
+                    height: 15,
+                    padding: const EdgeInsets.all(2),
+                    child: const CircularProgressIndicator(
+                      color: Colors.white,
+                      strokeWidth: 3,
+                    ),
+                  )
+                : null,
+          ),
+
           const Spacer(flex: 1),
         ],
       ),
