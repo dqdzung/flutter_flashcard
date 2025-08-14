@@ -10,7 +10,7 @@ class FavoritesPage extends StatelessWidget {
     final favorites = appState.favorites;
 
     if (favorites.isEmpty) {
-      return Center(child: Text('No favorites yet.'));
+      return const Center(child: Text('No favorites yet.'));
     }
 
     return Column(
@@ -23,15 +23,14 @@ class FavoritesPage extends StatelessWidget {
             style: const TextStyle(fontSize: 18),
           ),
         ),
-
         const SizedBox(height: 15),
-
         Flexible(
           child: ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 15, 15),
             children: [
               for (var word in favorites)
                 ListTile(
+                  key: ValueKey(word),
                   leading: TextButton(
                     child: Text(word, style: const TextStyle(fontSize: 16)),
                     onPressed: () {

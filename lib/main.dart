@@ -42,7 +42,6 @@ class AppState extends ChangeNotifier {
   var favorites = <String>[];
   var history = <String>[];
   WordDefinition? currentDefinition;
-
   GlobalKey? historyListKey;
 
   AppState() {

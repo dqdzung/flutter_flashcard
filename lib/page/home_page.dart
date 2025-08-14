@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
     final current = appState.currentWord;
     final count = appState.count;
     final isLoading = appState.isLoading;
+    final buttonStyle = TextStyle(color: theme.primaryColor, fontSize: 16);
 
     IconData icon;
     if (appState.favorites.contains(current)) {
@@ -37,20 +38,14 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   appState.decrease();
                 },
-                child: Text(
-                  '-1',
-                  style: TextStyle(color: theme.primaryColor, fontSize: 16),
-                ),
+                child: Text('-1', style: buttonStyle),
               ),
               const SizedBox(width: 10),
               ElevatedButton(
                 onPressed: () {
                   appState.increase();
                 },
-                child: Text(
-                  '+1',
-                  style: TextStyle(color: theme.primaryColor, fontSize: 16),
-                ),
+                child: Text('+1', style: buttonStyle),
               ),
             ],
           ),
@@ -63,10 +58,7 @@ class HomePage extends StatelessWidget {
                   appState.toggleFavorite();
                 },
                 icon: Icon(icon),
-                label: Text(
-                  'Like',
-                  style: TextStyle(color: theme.primaryColor, fontSize: 16),
-                ),
+                label: Text('Like', style: buttonStyle),
               ),
               const SizedBox(width: 10),
               ElevatedButton.icon(
@@ -76,10 +68,7 @@ class HomePage extends StatelessWidget {
                     : () {
                         appState.getNext();
                       },
-                label: Text(
-                  'Next word',
-                  style: TextStyle(color: theme.primaryColor, fontSize: 16),
-                ),
+                label: Text('Next word', style: buttonStyle),
                 icon: isLoading
                     ? Container(
                         width: 15,

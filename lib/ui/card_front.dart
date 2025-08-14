@@ -12,12 +12,10 @@ class CardFront extends StatelessWidget {
       fontWeight: FontWeight.bold,
     );
     final contextSize = MediaQuery.of(context).size;
-    final height = contextSize.height * 0.2;
-    final width = contextSize.width * 0.8;
 
     return SizedBox(
-      height: height,
-      width: width,
+      height: contextSize.height * 0.2,
+      width: contextSize.width * 0.8,
       child: Card(
         color: theme.colorScheme.primary,
         child: Center(child: Text(word, style: style)),

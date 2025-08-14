@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/model/word_definition.dart';
 import 'package:flutter_tutorial/service/fetch_definition.dart';
-import 'package:flutter_tutorial/ui/card_back.dart';
+import 'package:flutter_tutorial/ui/definition_content.dart';
 
 void showDefinitionModal(BuildContext context, String word) {
   showDialog(
@@ -14,7 +14,6 @@ void showDefinitionModal(BuildContext context, String word) {
 
 class DefinitionModal extends StatefulWidget {
   final String word;
-
   const DefinitionModal({super.key, required this.word});
 
   @override
@@ -65,7 +64,7 @@ class _DefinitionModalState extends State<DefinitionModal> {
 
                 // success and data not null, show data
               } else if (snapshot.hasData && snapshot.data != null) {
-                child = DefinitionContent(definition: snapshot.data!);
+                child = DefinitionContent(data: snapshot.data!);
               } else {
                 // no data, show text
                 child = const Center(

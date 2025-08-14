@@ -24,9 +24,16 @@ class _HistoryListViewState extends State<HistoryListView> {
   );
 
   @override
+  void initState() {
+    super.initState();
+    context.read<AppState>().historyListKey = _key;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final appState = context.watch<AppState>();
-    appState.historyListKey = _key;
+    final wordHistory = appState.history;
+    final favorites = appState.favorites;
 
     return ShaderMask(
       shaderCallback: (bounds) => _maskingGradient.createShader(bounds),
@@ -37,9 +44,9 @@ class _HistoryListViewState extends State<HistoryListView> {
         key: _key,
         reverse: true,
         padding: const EdgeInsets.only(top: 50),
-        initialItemCount: appState.history.length,
+        initialItemCount: wordHistory.length,
         itemBuilder: (context, index, animation) {
-          final word = appState.history[index];
+          final word = wordHistory[index];
           return SizeTransition(
             sizeFactor: animation,
             child: Center(
@@ -47,7 +54,7 @@ class _HistoryListViewState extends State<HistoryListView> {
                 onPressed: () {
                   appState.toggleFavorite(word);
                 },
-                icon: appState.favorites.contains(word)
+                icon: favorites.contains(word)
                     ? const Icon(Icons.favorite, size: 14, color: Colors.red)
                     : const SizedBox(),
                 label: Text(
