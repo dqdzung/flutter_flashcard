@@ -35,6 +35,7 @@ class _DefinitionFlipCardState extends State<DefinitionFlipCard> {
     _previousWord = word;
 
     return FlipCard(
+      onFlipDone: (isFront) => isFront ? appState.decrease() : null,
       controller: _controller,
       flipOnTouch: true,
       front: CardFront(word: word),
